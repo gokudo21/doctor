@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+</style>
+</head>
+<body>
+
+<h2>Cell that spans two rows</h2>
+<p>To make a cell span more than one row, use the rowspan attribute.</p>
+
+<table style="width:50%">
+  <tr>
+    <th>Doctor name:</th>
+<td>{{ record.doctor_name }}</td>
+  <tr>
+      <th>Patient name:</th>
+<td>{{ record.patient_name }}</td>
+
+  <tr>
+      <th>ID:</th>
+<td>{{ record.civil_ID}}</td>
+  <tr>
+      <th>Age:</th>
+<td>{{ record.age }}</td>
+    <tr>
+      <th>sex:</th>
+      <td>{{ record.sex }}</td>
+    <tr>
+
+      <th>Room number:</th>
+<td>{{ record.room_number }}</td>
+
+    <tr>
+      <th>Health history:</th>
+<td>{{ record.health_history }}</td>
+
+   <tr>
+      <th>Patient status:</th>
+<td>{{ record.patient_status }}</td>
+
+    <tr>
+      <th>Medicines:</th>
+<td>{{ record.medicines }}</td>
+    <tr>
+
+      <th>Element diet:</th>
+<td>{{ record.element_diet }}</td>
+
+    <tr>
+      <th>Doctor recommendation::</th>
+<td>{{ record.doctor_recommendation }}</td>
+    <tr>
+      <th>*Note:</th>
+<td>{{ record.note }}</td>
+    <tr>
+<table>
+
+<a href="ID"><button>exit</button> <a
+
+
+</body>
+</html>
+</html>
