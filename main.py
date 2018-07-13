@@ -65,6 +65,7 @@ def find():
     result = patients.find_one({'civil_ID' : searchy})
     print('result: ')
     print(result)
+
     return render_template('patient_info.html', record=result)
 
 
@@ -74,7 +75,7 @@ def find():
 def login_data():
     passwordy = request.args.get('psw')
     useridy = request.args.get('userid')
-    if passwordy == "1234567" and useridy == "haya":
+    if passwordy == "1234567" and useridy == "haya" or  passwordy == "7654321" and useridy == "manal":
         return render_template('ID.html')
     else :
         return render_template('login.html')
@@ -86,10 +87,10 @@ def serve6():
 
 @app.route('/edit',methods = ['POST', 'GET'])
 def edit():
-    search2y = request.args.get('search2')
+    searchy = request.args.get('search')
     patients = mongo.db.patients
-    result2 = patients.find_one({'civil_ID': search2y})
-    return render_template('test7.html', record=result2)
+    result = patients.find_one({'civil_ID': searchy})
+    return render_template('edit.html', record=result)
 
 @app.route('/edit2',methods = ['POST', 'GET'])
 def edit2():
@@ -107,11 +108,11 @@ def edit2():
     notename2y = request.args.get('pnote2')
 
     patients = mongo.db.patients
-    patients.update({'name': 'target'}, {'school': 'new school', 'age': 'new age'})
+    #1patients.update({'name': 'target'}, {'school': 'new school', 'age': 'new age'})
 
-    #patients.update({'doctor_name': docname2y} {, 'patient_name': patname2y, 'civil_ID': civilname2y, 'age': agename2y, 'sex': Sexname2y,'room_number': roomname2y, 'health_history': Healthname2y, 'patient_status': statusname2y,'medicines': Medicinesname2y, 'element_diet': Elementdname2y, 'doctor_recommendation': recommendationname2y,'note': notename2y})
+    patients.update({'civil_ID': civilname2y} ,{ 'doctor_name': docname2y, 'patient_name': patname2y, 'civil_ID': civilname2y, 'age': agename2y, 'sex': Sexname2y,'room_number': roomname2y, 'health_history': Healthname2y, 'patient_status': statusname2y,'medicines': Medicinesname2y, 'element_diet': Elementdname2y, 'doctor_recommendation': recommendationname2y,'note': notename2y})
 
-    return 'updated  ' + patname2y + ' to the database!'
+    return patname2y + ' updated'
 
 
 
