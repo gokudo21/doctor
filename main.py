@@ -6,8 +6,8 @@ app = Flask(__name__)
 
 
 #app.config['MONGO_DBNAME'] = 'test'
-#app.config['MONGO_URI'] = 'mongodb://localhost:27017/test'
-app.config['MONGO_URI'] = 'mongodb://gokudo21:a1234567@ds018848.mlab.com:18848/patientdb'
+app.config['MONGO_URI'] = 'mongodb://localhost:27017/test'
+#app.config['MONGO_URI'] = 'mongodb://gokudo21:a1234567@ds018848.mlab.com:18848/patientdb'
 
 
 mongo = PyMongo(app)
@@ -87,12 +87,16 @@ def serve6():
     return render_template('test6.html')
 
 
-@app.route('/edit',methods = ['POST', 'GET'])
+@app.route('/edit', methods=['GET'])
 def edit():
-    searchy = request.args.get('search')
+    search2y = request.args.get('search2')
     patients = mongo.db.patients
-    result = patients.find_one({'civil_ID': searchy})
-    return render_template('edit.html', record=result)
+    result5 = patients.find_one({'civil_ID': search2y})
+    print("result 5:")
+    print(result5)
+    print("search: ")
+    print(search2y)
+    return render_template('edit.html', record=result5)
 
 @app.route('/edit2',methods = ['POST', 'GET'])
 def edit2():
