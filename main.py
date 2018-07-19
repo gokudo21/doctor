@@ -31,11 +31,7 @@ def room1_view():
     result = patients.find_one({'room_number': "1"})
     return render_template('room1.html', record=result)
 
-@app.route("/room2")
-def room2_view():
-    patients = mongo.db.patients
-    result = patients.find_one({'room_number': "2"})
-    return render_template('room2.html', record=result)
+
 
 
 @app.route('/pdata',methods = ['POST', 'GET'])
